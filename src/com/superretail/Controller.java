@@ -1,4 +1,4 @@
-package com.superretail.controllers;
+package com.superretail;
 
 public class Controller {
 
