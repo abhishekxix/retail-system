@@ -1,0 +1,24 @@
+* {
+    -fx-font-size: 1.25em;
+}
+
+#buttonBar {
+    -fx-background-color: #000000;
+}
+
+.button {
+    /*-fx-border-radius: 200%;*/
+    /*fon: bold;*/
+}
+
+#addItem {
+    -fx-background-color: #2fc664;
+}
+
+#deleteItem {
+    -fx-background-color: #f64640;
+}
+
+#updateItem {
+    -fx-background-color: #fdd801;
+}
