@@ -10,10 +10,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("superretail.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
         primaryStage.setTitle("Retail Management System");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.setMaximized(true);
+        primaryStage.setScene(new Scene(root, 1280, 720));
+//        primaryStage.setMaximized(true);
+        primaryStage.setResizable(false);
+
         primaryStage.show();
     }
 
