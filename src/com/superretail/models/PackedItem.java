@@ -55,4 +55,24 @@ public class PackedItem extends StockItem {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Code: %s\n" +
+                        "Brand: %s\n" +
+                        "Name: %s\n" +
+                        "Price: %f\n" +
+                        "Quantity: %d\n" +
+                        "Manufacture Date: %s\n" +
+                        "Expiration Date: %s\n",
+                code,
+                brand,
+                itemName,
+                price,
+                quantity,
+                manufactureDate,
+                expirationDate
+        );
+    }
 }

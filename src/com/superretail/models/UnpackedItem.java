@@ -13,7 +13,8 @@ public class UnpackedItem extends StockItem {
     private final boolean isFluid;
 
 
-    public UnpackedItem(String code, String itemName, Double price, Double quantity, boolean isFluid) {
+    public UnpackedItem(String code, String itemName, Double price, Double quantity,
+                        boolean isFluid) {
         super.code = code;
         super.itemName = itemName;
         super.price = price;
@@ -32,4 +33,26 @@ public class UnpackedItem extends StockItem {
     public boolean isFluid() {
         return isFluid;
     }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Code: %s\n" +
+                        "Name: %s\n" +
+                        "Price: %f\n" +
+                        "Quantity: %f" +
+                        ((isFluid)? " Ltr." : " Kg") +
+                        "\n",
+                code,
+                itemName,
+                price,
+                quantity
+        );
+    }
+
+//    public static void main(String[] args) {
+//        UnpackedItem item = new UnpackedItem("a", "ab", 50.9, 5.6,
+//                true);
+//        System.out.println(item);
+//    }
 }
