@@ -29,16 +29,9 @@ public class ItemData {
         try(ObjectInputStream saveFile =
                     new ObjectInputStream(new BufferedInputStream(Files.newInputStream(path)))) {
 
-            boolean eof = false;
-
-            while(!eof) {
-
-                try {
-                    StockItem item = (StockItem) saveFile.readObject();
-                    stockItemList.add(item);
-                } catch(IOException e) {
-                    eof = false;
-                }
+            while(true) {
+                StockItem item = (StockItem) saveFile.readObject();
+                stockItemList.add(item);
             }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
