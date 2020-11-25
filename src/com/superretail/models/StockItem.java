@@ -1,22 +1,16 @@
 package com.superretail.models;
 
+import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
-abstract class StockItem {
+abstract class StockItem implements Serializable {
     String code;
     String itemName;
     Double price;
-    Date manufactureDate;
-    Date expirationDate;
-    String brand;
 
-    public String getBrand() {
-        return brand;
-    }
+    private static final long serialversionuid = 1l;
 
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
 
     public String getCode() {
         return code;
@@ -36,14 +30,6 @@ abstract class StockItem {
 
     public void setPrice(Double price) {
         this.price = price;
-    }
-
-    public Date getManufactureDate() {
-        return manufactureDate;
-    }
-
-    public Date getExpirationDate() {
-        return expirationDate;
     }
 
 }

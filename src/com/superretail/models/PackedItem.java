@@ -1,5 +1,6 @@
 package com.superretail.models;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class PackedItem extends StockItem {
@@ -8,16 +9,43 @@ public class PackedItem extends StockItem {
      * The quantity here determines the number of packages of an item.
      **/
     private Integer quantity;
+    private LocalDate manufactureDate;
+    private LocalDate expirationDate;
+    private String brand;
 
     public PackedItem(String code, String itemName, Double price, Integer quantity, String brand,
-                    Date expirationDate, Date manufactureDate) {
+                      LocalDate manufactureDate, LocalDate expirationDate) {
         super.code = code;
         super.itemName = itemName;
         super.price = price;
-        super.brand = brand;
-        super.expirationDate = expirationDate;
-        super.manufactureDate = manufactureDate;
+        this.brand = brand;
+        this.expirationDate = expirationDate;
+        this.manufactureDate = manufactureDate;
         this.quantity = quantity;
+    }
+
+    public LocalDate getManufactureDate() {
+        return manufactureDate;
+    }
+
+    public void setManufactureDate(LocalDate manufactureDate) {
+        this.manufactureDate = manufactureDate;
+    }
+
+    public LocalDate getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(LocalDate expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     public Integer getQuantity() {
