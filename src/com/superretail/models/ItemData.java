@@ -29,12 +29,18 @@ public class ItemData {
         try(ObjectInputStream saveFile =
                     new ObjectInputStream(new BufferedInputStream(Files.newInputStream(path)))) {
 
-            while(true) {
-                StockItem item = (StockItem) saveFile.readObject();
-                stockItemList.add(item);
+            boolean eof = false;
+            while(!eof) {
+                try {
+                    StockItem item = (StockItem) saveFile.readObject();
+                    stockItemList.add(item);
+                } catch (IOException e) {
+                    eof = true;
+                }
             }
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
+
         }
     }
 
