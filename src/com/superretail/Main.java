@@ -25,12 +25,12 @@ public class Main extends Application {
     }
 
     @Override
-    public void init() throws Exception {
+    public void init() {
         ItemData.getInstance().load();
     }
 
     @Override
-    public void stop() throws Exception {
+    public void stop() {
         ItemData.getInstance().save();
     }
 }
