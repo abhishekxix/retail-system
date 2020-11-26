@@ -28,11 +28,13 @@
         </HBox>
     </top>
     <left>
-        <ListView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="675.0" prefWidth="248.0" BorderPane.alignment="CENTER" />
+        <ListView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="675.0"
+                  prefWidth="248.0" BorderPane.alignment="CENTER" fx:id="itemListView"/>
     </left>
     <center>
         <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-            <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS"/>
+            <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS"
+                    fx:id="detailsArea"/>
         </VBox>
     </center>
 </BorderPane>

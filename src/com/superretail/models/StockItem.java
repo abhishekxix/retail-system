@@ -2,7 +2,7 @@ package com.superretail.models;
 
 import java.io.Serializable;
 
-abstract class StockItem implements Serializable {
+public class StockItem implements Serializable {
     String code;
     String itemName;
     Double price;
