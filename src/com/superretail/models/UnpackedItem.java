@@ -1,7 +1,5 @@
 package com.superretail.models;
 
-import java.time.LocalDate;
-import java.util.Date;
 
 public class UnpackedItem extends StockItem {
 
@@ -41,7 +39,7 @@ public class UnpackedItem extends StockItem {
                         "Name: %s\n" +
                         "Price: %f\n" +
                         "Quantity: %f" +
-                        ((isFluid)? " Ltr." : " Kg") +
+                        ((isFluid) ? " Ltr." : " Kg") +
                         "\n",
                 code,
                 itemName,
@@ -49,10 +47,4 @@ public class UnpackedItem extends StockItem {
                 quantity
         );
     }
-
-//    public static void main(String[] args) {
-//        UnpackedItem item = new UnpackedItem("a", "ab", 50.9, 5.6,
-//                true);
-//        System.out.println(item);
-//    }
 }

@@ -7,20 +7,17 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.format.DateTimeFormatter;
 
 
 
 public class ItemData {
 
-    private  final DateTimeFormatter formatter;
     private ObservableList<StockItem> stockItemList;
     private static final ItemData instance = new ItemData();
     private static final String fileName = "stock-items.dat";
 
     private ItemData() {
         stockItemList = FXCollections.observableArrayList();
-        formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     }
 
     public void load() {

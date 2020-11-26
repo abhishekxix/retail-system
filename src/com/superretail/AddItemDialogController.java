@@ -6,11 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import org.w3c.dom.Text;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class AddItemDialogController {
@@ -49,7 +46,8 @@ public class AddItemDialogController {
     public void initialize() {
         itemToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
-            public void changed(ObservableValue<? extends Toggle> observableValue, Toggle toggle, Toggle t1) {
+            public void changed(ObservableValue<? extends Toggle> observableValue, Toggle toggle,
+                                Toggle t1) {
                 if(t1 == tbUnpacked) {
                     hidePackedProperties();
                     addFluiditySelector();
