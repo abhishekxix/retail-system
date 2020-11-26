@@ -1,10 +1,8 @@
 package com.superretail.models;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.Date;
 
-abstract class StockItem implements Serializable {
+public class StockItem implements Serializable {
     String code;
     String itemName;
     Double price;

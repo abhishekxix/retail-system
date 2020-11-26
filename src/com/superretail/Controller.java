@@ -1,11 +1,10 @@
 package com.superretail;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -15,6 +14,8 @@ public class Controller {
 
     @FXML
     public BorderPane dashBoard;
+    @FXML
+    public ListView<com.superretail.models.StockItem> itemListView;
 
     public void initialize() {
 

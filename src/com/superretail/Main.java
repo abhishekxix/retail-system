@@ -13,7 +13,6 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
         primaryStage.setTitle("Retail Management System");
         primaryStage.setScene(new Scene(root, 1280, 720));
-//        primaryStage.setMaximized(true);
         primaryStage.setResizable(false);
 
         primaryStage.show();
