@@ -78,6 +78,7 @@ public class Controller {
         });
    }
 
+   @FXML
     public void onClickAdd() {
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.initOwner(dashBoard.getScene().getWindow());
