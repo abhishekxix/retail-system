@@ -6,6 +6,7 @@ import com.superretail.models.StockItem;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -101,6 +102,21 @@ public class Controller {
         if(result.isPresent() && result.get() == ButtonType.OK) {
             AddItemDialogController controller = fxmlLoader.getController();
             controller.processResult();
+        }
+    }
+
+    @FXML
+    public void deleteItem() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Stock Item");
+        alert.setHeaderText(itemListView.getSelectionModel().getSelectedItem().getItemName());
+        alert.setContentText(
+                itemListView.getSelectionModel().getSelectedItem().toString()
+        );
+        Optional<ButtonType> result = alert.showAndWait();
+        if(result.isPresent() && result.get() == ButtonType.OK) {
+            detailsArea.setText(null);
+            ItemData.getInstance().getStockItemList().remove(itemListView.getSelectionModel().getSelectedItem());
         }
     }
 }
