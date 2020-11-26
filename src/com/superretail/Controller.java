@@ -1,13 +1,21 @@
 package com.superretail;
 
+import com.superretail.models.ItemData;
+import com.superretail.models.PackedItem;
+import com.superretail.models.StockItem;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.util.Callback;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.Optional;
 
 public class Controller {
@@ -16,9 +24,57 @@ public class Controller {
     public BorderPane dashBoard;
     @FXML
     public ListView<com.superretail.models.StockItem> itemListView;
+    @FXML
+    public TextArea detailsArea;
 
     public void initialize() {
+        itemListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        itemListView.getSelectionModel().selectedItemProperty().addListener(
+            new ChangeListener<StockItem>() {
+            @Override
+            public void changed(ObservableValue<? extends StockItem> observableValue,
+                                StockItem stockItem, StockItem newItem) {
+                if(newItem != null) {
+                    StockItem newStockItem = itemListView.getSelectionModel().getSelectedItem();
+                    detailsArea.setText(newStockItem.toString());
+                }
+            }
+        });
 
+        SortedList<StockItem> sortedList = new SortedList<>(
+                ItemData.getInstance().getStockItemList(),
+                new Comparator<StockItem>() {
+                    @Override
+                    public int compare(StockItem stockItem, StockItem item) {
+                        return stockItem.getItemName().compareToIgnoreCase(item.getItemName());
+                    }
+                }
+        );
+
+        itemListView.setItems(sortedList);
+        itemListView.getSelectionModel().selectFirst();
+
+        itemListView.setCellFactory(new Callback<ListView<StockItem>, ListCell<StockItem>>() {
+            @Override
+            public ListCell<StockItem> call(ListView<StockItem> stockItemListView) {
+                ListCell<StockItem> cell = new ListCell<>() {
+                    @Override
+                    protected void updateItem(StockItem stockItem, boolean b) {
+                        super.updateItem(stockItem, b);
+                        if(b) {
+                            setText(null);
+                        } else {
+                            setText(stockItem.getItemName());
+                            if(stockItem instanceof PackedItem &&
+                                ((PackedItem) stockItem).getExpirationDate().isBefore(LocalDate.now())) {
+                                setTextFill(Color.RED);
+                            }
+                        }
+                    }
+                };
+                return cell;
+            }
+        });
    }
 
     public void onClickAdd() {
