@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.superretail.AddItemDialogController"
+            fx:id="dialogPane">
+
+    <content>
+        <GridPane vgap="10" hgap="10" fx:id="gridPane">
+            <Label text="Item Code: " GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField GridPane.rowIndex="0" GridPane.columnIndex="1" fx:id="itemCode"/>
+
+            <Label text="Item Name: " GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="itemName"/>
+
+            <Label text="Item Price: " GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="itemPrice"/>
+
+            <Label text="Type of item: " GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+
+            <fx:define>
+                <ToggleGroup fx:id="itemToggleGroup"/>
+            </fx:define>
+            <RadioButton GridPane.rowIndex="3" GridPane.columnIndex="1"
+                         text="Packed " toggleGroup="$itemToggleGroup" fx:id="tbPacked"/>
+            <RadioButton GridPane.rowIndex="3" GridPane.columnIndex="2"
+                         text="Unpacked " toggleGroup="$itemToggleGroup" fx:id="tbUnpacked"/>
+
+        </GridPane>
+    </content>
+</DialogPane>
