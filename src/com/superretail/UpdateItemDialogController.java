@@ -8,7 +8,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import org.w3c.dom.Text;
 
 public class UpdateItemDialogController {
 

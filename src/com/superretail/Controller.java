@@ -58,7 +58,7 @@ public class Controller {
         itemListView.setCellFactory(new Callback<ListView<StockItem>, ListCell<StockItem>>() {
             @Override
             public ListCell<StockItem> call(ListView<StockItem> stockItemListView) {
-                ListCell<StockItem> cell = new ListCell<>() {
+                ListCell<StockItem> cell = new ListCell<StockItem>() {
                     @Override
                     protected void updateItem(StockItem stockItem, boolean b) {
                         super.updateItem(stockItem, b);
@@ -82,6 +82,7 @@ public class Controller {
         dialog.setHeaderText("Create a new Stock item here");
         dialog.setHeight(600);
         dialog.setWidth(500);
+        dialog.setResizable(true);
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("add-item-dialog.fxml"));
 

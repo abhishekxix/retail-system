@@ -112,19 +112,19 @@ public class AddItemDialogController {
     }
 
     private void hideUnpackedProperties() {
-        for(var node : unpackedNodesList) {
+        for(Node node : unpackedNodesList) {
             gridPane.getChildren().remove(node);
         }
     }
 
     private void hidePackedProperties() {
-        for(var node : packedNodesList) {
+        for(Node node : packedNodesList) {
             gridPane.getChildren().remove(node);
         }
     }
 
     private void addIfAbsent(List<Node> list, Node... nodes) {
-       for(var node : nodes) {
+       for(Node node : nodes) {
             if(!list.contains(node)) {
                 list.add(node);
             }

@@ -47,7 +47,7 @@ public class ItemData {
         try(ObjectOutputStream saveFile =
                     new ObjectOutputStream(new BufferedOutputStream(Files.newOutputStream(path)))) {
 
-            for(var item : stockItemList) {
+            for(StockItem item : stockItemList) {
                 saveFile.writeObject(item);
             }
         } catch (IOException e) {
