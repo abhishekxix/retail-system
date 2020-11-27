@@ -29,25 +29,18 @@ public class PackedItem extends StockItem {
         return manufactureDate;
     }
 
-    public void setManufactureDate(LocalDate manufactureDate) {
-        this.manufactureDate = manufactureDate;
-    }
+
 
     public LocalDate getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(LocalDate expirationDate) {
-        this.expirationDate = expirationDate;
-    }
+
 
     public String getBrand() {
         return brand;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
 
     public Integer getQuantity() {
         return quantity;
@@ -73,7 +66,7 @@ public class PackedItem extends StockItem {
                 price,
                 quantity,
                 manufactureDate,
-                expirationDate
+                expirationDate == null ? "N/A" : expirationDate
         );
     }
 }

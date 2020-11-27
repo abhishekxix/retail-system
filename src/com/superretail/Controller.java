@@ -66,10 +66,6 @@ public class Controller {
                             setText(null);
                         } else {
                             setText(stockItem.getItemName());
-                            if(stockItem instanceof PackedItem &&
-                                ((PackedItem) stockItem).getExpirationDate().isBefore(LocalDate.now())) {
-                                setTextFill(Color.RED);
-                            }
                         }
                     }
                 };
@@ -104,6 +100,7 @@ public class Controller {
             AddItemDialogController controller = fxmlLoader.getController();
             controller.processResult();
         }
+        itemListView.getSelectionModel().selectFirst();
     }
 
     @FXML
@@ -119,5 +116,39 @@ public class Controller {
             detailsArea.setText(null);
             ItemData.getInstance().getStockItemList().remove(itemListView.getSelectionModel().getSelectedItem());
         }
+        itemListView.getSelectionModel().selectFirst();
+    }
+
+    @FXML
+    public void updateItem() {
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(dashBoard.getScene().getWindow());
+        dialog.setTitle("Update Stock item");
+        dialog.setHeaderText("UpdateStock item here");
+        dialog.setHeight(600);
+        dialog.setWidth(500);
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("update-item-dialog.fxml"));
+
+        try {
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+
+        } catch(IOException e) {
+            System.out.println("Couldn't load dialog");
+            e.printStackTrace();
+        }
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+
+        UpdateItemDialogController controller = fxmlLoader.getController();
+        StockItem itemToUpdate = itemListView.getSelectionModel().getSelectedItem();
+        controller.initData(itemToUpdate);
+
+        Optional<ButtonType> result = dialog.showAndWait();
+        if(result.isPresent() && result.get() == ButtonType.OK) {
+            controller.processResult();
+        }
+        itemListView.setItems(ItemData.getInstance().getStockItemList());
+        itemListView.getSelectionModel().select(itemToUpdate);
     }
 }

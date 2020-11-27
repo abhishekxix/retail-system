@@ -36,7 +36,7 @@ public class AddItemDialogController {
     private Label mfgDateLabel = new Label("Manufacture Date:");
     private Label expDateLabel = new Label("Expiration Date:");
     private DatePicker mfgDatePicker = new DatePicker(LocalDate.now());
-    private DatePicker expDatePicker = new DatePicker(LocalDate.now());
+    private DatePicker expDatePicker = new DatePicker();
     private Label brandLabel = new Label("Brand:");
     private TextField brandField = new TextField();
     private boolean isFluid;
@@ -153,6 +153,9 @@ public class AddItemDialogController {
         } else {
 
             try{
+                if(brandField.getText().trim().equals("")) {
+                    brandField.setText("Generic");
+                }
                 com.superretail.models.ItemData.getInstance().addItem(new com.superretail.models.PackedItem(
                         itemCode.getText(),
                         itemName.getText(),
