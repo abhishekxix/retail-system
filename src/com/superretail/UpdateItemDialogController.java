@@ -65,7 +65,11 @@ public class UpdateItemDialogController {
             mfgDate.setText(((PackedItem) selectedItem).getManufactureDate().toString());
             gridPane.add(mfgDate, 1, 4);
             gridPane.add(expDateLabel, 0, 5);
-            expDate.setText(((PackedItem) selectedItem).getExpirationDate().toString());
+            String expDateString = ((PackedItem) selectedItem).getExpirationDate() == null?
+                    "N/A" :
+                    ((PackedItem) selectedItem).getExpirationDate().toString();
+
+            expDate.setText(expDateString);
             gridPane.add(expDate, 1, 5);
             gridPane.add(brandLabel, 0, 6);
             gridPane.add(new Label(((PackedItem) selectedItem).getBrand()), 1, 6);
