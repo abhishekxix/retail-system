@@ -6,19 +6,19 @@
 <DialogPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.superretail.UpdateItemDialogController">
-
-    <content>
-        <GridPane vgap="10" hgap="10" fx:id="gridPane">
-            <Label text="Item Code: " GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-            <Label GridPane.rowIndex="0" GridPane.columnIndex="1" fx:id="itemCode"/>
-
-            <Label text="Item Name: " GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-            <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="itemName"/>
-
-            <Label text="Item Price: " GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-            <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="itemPrice"/>
-
-
-        </GridPane>
-    </content>
+  
+  <content>
+    <GridPane vgap="10" hgap="10" fx:id="gridPane">
+      <Label text="Item Code: " GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+      <Label GridPane.rowIndex="0" GridPane.columnIndex="1" fx:id="itemCode"/>
+      
+      <Label text="Item Name: " GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+      <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="itemName"/>
+      
+      <Label text="Item Price: " GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+      <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="itemPrice"/>
+    
+    
+    </GridPane>
+  </content>
 </DialogPane>
